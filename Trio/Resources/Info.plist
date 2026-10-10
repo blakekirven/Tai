@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AppGroupID</key>
-	<string>$(APP_GROUP_ID)</string>
 	<key>AppDevVersion</key>
 	<string>$(APP_DEV_VERSION)</string>
-	<key>ReleaseNotesRepository</key>
-	<string>$(RELEASE_NOTES_REPO)</string>
+	<key>AppGroupID</key>
+	<string>$(APP_GROUP_ID)</string>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>$(PRODUCT_BUNDLE_IDENTIFIER).background-task.critical-event-log</string>
@@ -64,10 +62,10 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
-	<key>NSAlarmKitUsageDescription</key>
-	<string>Trio uses alarms so urgent glucose and pump alerts can reach you even when your phone is silenced or a Focus is on.</string>
 	<key>NFCReaderUsageDescription</key>
 	<string>NFC is used to scan Libre sensors.</string>
+	<key>NSAlarmKitUsageDescription</key>
+	<string>Trio uses alarms so urgent glucose and pump alerts can reach you even when your phone is silenced or a Focus is on.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -81,6 +79,8 @@
 	<string>To create events with glucose values, so they can be viewed on Apple Watch and CarPlay</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Calendar is used to create new glucose events.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used to scan the code on your Dexcom sensor packaging.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Contact is used to create a Apple Watch complication</string>
 	<key>NSFaceIDUsageDescription</key>
@@ -93,6 +93,8 @@
 	<string>$(COPYRIGHT_NOTICE)</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
+	<key>ReleaseNotesRepository</key>
+	<string>$(RELEASE_NOTES_REPO)</string>
 	<key>TeamID</key>
 	<string>$(DEVELOPMENT_TEAM)</string>
 	<key>UIApplicationSceneManifest</key>
@@ -111,8 +113,8 @@
 		<string>remote-notification</string>
 		<string>audio</string>
 	</array>
-    <key>UIDesignRequiresCompatibility</key>
-    <false/>
+	<key>UIDesignRequiresCompatibility</key>
+	<false/>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchScreen</key>
