@@ -1,3 +1,5 @@
+
+
 import Charts
 import CoreData
 import LoopKitUI
@@ -31,6 +33,36 @@ extension Treatments {
 
         /// Que scroll target
         @State private var pendingScrollTarget: FocusedField?
+
+        @State private var showMealAnalysis = false
+
+        @ViewBuilder private func mealAnalysisButton() -> some View {
+            Button {
+                focusedField = nil
+                showMealAnalysis = true
+            } label: {
+                Label("Analyze / look up food", systemImage: "fork.knife")
+            }
+            .buttonStyle(.borderless)
+            .sheet(isPresented: $showMealAnalysis) {
+                MealAnalysisView(
+                    maxCarbs: NSDecimalNumber(decimal: state.maxCarbs).doubleValue,
+                    maxFat: NSDecimalNumber(decimal: state.maxFat).doubleValue,
+                    maxProtein: NSDecimalNumber(decimal: state.maxProtein).doubleValue
+                ) { carbs, fat, protein in
+                    applyAnalyzedMeal(carbs: carbs, fat: fat, protein: protein)
+                }
+            }
+        }
+
+        private func applyAnalyzedMeal(carbs: Double, fat: Double, protein: Double) {
+            state.carbs = Decimal(carbs.rounded())
+            if state.useFPUconversion {
+                state.fat = Decimal(fat.rounded())
+                state.protein = Decimal(protein.rounded())
+            }
+            handleDebouncedInput()
+        }
 
         private enum Config {
             static let dividerHeight: CGFloat = 2
@@ -131,6 +163,7 @@ extension Treatments {
 
         @ViewBuilder private func carbsTextField() -> some View {
             HStack {
+                mealAnalysisButton()
                 Text("Carbs")
                 Spacer()
                 TextFieldWithToolBar(
