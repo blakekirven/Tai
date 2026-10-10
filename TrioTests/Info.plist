@@ -16,11 +16,11 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>EnableReplayTests</key>
 	<string>$(ENABLE_REPLAY_TESTS)</string>
-	<key>ReplayTestTimezone</key>
-	<string>$(REPLAY_TEST_TIMEZONE)</string>
-	<key>HttpFilesOffset</key>
-	<string>$(HTTP_FILES_OFFSET)</string>
 	<key>HttpFilesLength</key>
 	<string>$(HTTP_FILES_LENGTH)</string>
+	<key>HttpFilesOffset</key>
+	<string>$(HTTP_FILES_OFFSET)</string>
+	<key>ReplayTestTimezone</key>
+	<string>$(REPLAY_TEST_TIMEZONE)</string>
 </dict>
 </plist>
